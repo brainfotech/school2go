@@ -1,7 +1,7 @@
 School2Go
 ==========
 
-Open Source Community School Management System
+Community School Management System
 -----------------------------------
 
 
@@ -15,6 +15,14 @@ Scope of this project is limited to the following features:
 5. Staff management
 
 Any feedback is welcome, and I will incorporate useful pull requests.
+
+TODO (Next phases)
+----
+1. Payment processing (Paypal & other US Banks)
+2. Subscription management
+3. Reports
+and more..
+
 
 Running
 -------
