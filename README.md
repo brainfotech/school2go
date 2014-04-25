@@ -1,5 +1,9 @@
-School2Go - Open Source School Management System
-=========
+School2Go
+==========
+
+Open Source Community School Management System
+-----------------------------------
+
 
 Purpose of this open source project is to provide a enterprise grade software to manage the part time community based schools. This software is not intended to be used in regular academic schools.
 Scope of this project is limited to the following features:
