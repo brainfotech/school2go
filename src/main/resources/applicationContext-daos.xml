@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                http://www.springframework.org/schema/tx
+                http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+                http://www.springframework.org/schema/jee
+                http://www.springframework.org/schema/jee/spring-jee-4.0.xsd">
+                
+    
+    
+    <context:property-placeholder location="classpath:application.properties"></context:property-placeholder>
+    
+    <!-- Different kinds of Data Source Configurations-->
+        
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" p:driverClassName="${jdbc.driverClassName}" p:url="${jdbc.url}"
+                p:username="${jdbc.username}" p:password="${jdbc.password}">
+    </bean>
+    <!--
+       <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" p:jndiName="java:comp/env/jdbc/tickets4bus">
+   		</bean>
+   		<jee:jndi-lookup id="dbDataSource" jndi-name="${jdbc/jndiName}" expected-type="javax.sql.DataSource" /> 
+    -->
+    <!--  
+       <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+                p:driverclassname="${jdbc.driverClassName}" p:url="${jdbc.url}" p:username="${jdbc.username}"
+               p:password="${jdbc.password}"  >
+       </bean>
+    -->
+        
+    <bean id="sessionFactory"
+                class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	    <property name="dataSource" ref="dataSource"></property>
+	    <property name="hibernateProperties">
+	            <props>
+	                    <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+	                    <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+	                    <prop key="hibernate.use_sql_comments">${hibernate.use_sql_comments}</prop>
+	                    <prop key="hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+	            </props>
+	    </property>
+	    <property name="packagesToScan" value="com.diebold.agilis.webconsole.entity"></property>
+    </bean>
+    
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="persistenceUnitName" value="school2gopu" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="generateDdl" value="true" />
+                <property name="showSql" value="true" />
+            </bean>
+        </property>
+    </bean>
+    
+    <!-- Different kinds of transaction managers -->
+    <!--  
+    <bean id="transactionManager"
+                class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+                p:sessionFactory-ref="sessionFactory">
+    </bean>
+    -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" p:entityManagerFactory-ref="entityManagerFactory">
+    </bean>
+    
+    <!--
+        <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource="dataSource">
+    	</bean>  
+    -->
+        
+    <!-- Exception translation bean post processor -->
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+    
+     <bean id="newsEntryDao" class="com.brainfotech.school2go.dao.newsentry.JpaNewsEntryDao">
+    </bean>
+
+    <bean id="userDao" class="com.brainfotech.school2go.dao.user.JpaUserDao">
+    </bean>
+
+    <bean id="dataBaseInitializer" class="com.brainfotech.school2go.dao.DataBaseInitializer" init-method="initDataBase">
+        <constructor-arg ref="userDao" />
+        <constructor-arg ref="newsEntryDao" />
+        <constructor-arg ref="passwordEncoder" />
+    </bean>
+    
+</beans>

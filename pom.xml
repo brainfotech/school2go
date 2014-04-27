@@ -28,8 +28,14 @@
         <jstl.version>1.2</jstl.version>
         <jersey.version>1.17.1</jersey.version>
         <commons-dbcp.version>1.4</commons-dbcp.version>
-        <org.hibernate.version>4.2.2.Final</org.hibernate.version>
+        <org.hibernate.version>4.3.5.Final</org.hibernate.version>
+        
         <javax.servlet-api.version>2.5</javax.servlet-api.version>
+        
+        <!--  
+        <javax.servlet-api.version>3.0-alpha-1</javax.servlet-api.version>
+        -->
+        
         <org.hsqldb.version>2.2.9</org.hsqldb.version>
 
     </properties>
@@ -201,41 +207,106 @@
         </dependency>
 
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.30</version>
-        </dependency>
-
-        <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>${jstl.version}</version>
         </dependency>
 
+        
+        
+        
+        <!-- Hibernate Related Dependencies -->
         <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>${commons-dbcp.version}</version>
-        </dependency>
-
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${org.hibernate.version}</version>
+		</dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${org.hibernate.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-         <!-- Hsqldb for development -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${org.hibernate.version}</version>
+		</dependency>
+        
+		
+		<!-- Other Dependencies -->
+	    <!-- Quartz framework -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+	    
+	    <!-- Jackson JSON processor and Data Mapper package -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+	       <dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-jaxrs</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+        
+		
+	       
+		
+		
+		
+        
+        <!--  Database Drivers -->
+        
+        <!-- Hsqldb for development -->
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>${org.hsqldb.version}</version>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.30</version>
+        </dependency>
+        
+        
+        
+        <!--  Commons Libraries -->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>${commons-dbcp.version}</version>
+        </dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		
+		
+        
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        
     </dependencies>
 
     <build>
@@ -258,6 +329,53 @@
                     </webAppConfig>
                 </configuration>
             </plugin>
+            <plugin>
+	        	<groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <version>3.1</version>
+	            <configuration>
+		            <source>1.7</source>
+		            <target>1.7</target>
+	            </configuration>
+	        </plugin>
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-surefire-plugin</artifactId>
+	            <version>2.17</version>
+	        </plugin>
+	        <!--    
+	        <plugin>
+	            <artifactId>maven-war-plugin</artifactId>
+	        	<version>2.1</version>
+	           	<configuration>
+	           		<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+	           		<packagingExcludes>WEB-INF/classes/javax/**</packagingExcludes>
+	           	</configuration>
+	     	</plugin>
+	     	-->
+	     	<plugin>
+		        <groupId>org.apache.tomcat.maven</groupId>
+		        <artifactId>tomcat7-maven-plugin</artifactId>
+		        <version>2.2</version>
+		        <configuration>
+		          <url>http://127.0.0.1:8080/manager</url>
+		          <!--  
+		          <server>myserver</server>
+		          -->
+		          <path>/${project.build.finalName}</path>
+		        </configuration>
+	      	</plugin>
+	      
+		    <plugin>
+		        <groupId>org.apache.tomcat.maven</groupId>
+		        <artifactId>tomcat6-maven-plugin</artifactId>
+		        <version>2.2</version>
+		        <configuration>
+		          <url>http://127.0.0.1:8080/manager</url>
+		          <path>/${project.build.finalName}</path>
+		        </configuration>
+			</plugin>
+            
         </plugins>
     </build>
 </project>
