@@ -1,0 +1,6 @@
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <mapping resource="component.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
