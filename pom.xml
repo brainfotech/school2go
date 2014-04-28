@@ -257,12 +257,7 @@
 			<artifactId>jackson-jaxrs</artifactId>
 			<version>1.9.13</version>
 		</dependency>
-        
-		
-	       
-		
-		
-		
+
         
         <!--  Database Drivers -->
         
@@ -297,9 +292,7 @@
 			<artifactId>gson</artifactId>
 			<version>2.2.4</version>
 		</dependency>
-		
-		
-        
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

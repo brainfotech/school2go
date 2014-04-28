@@ -60,4 +60,12 @@ public class ThreadLocalUtil {
     public static String getFamilyId() {
         return familyId.get();
     }
+
+    public static InheritableThreadLocal<String> getSchoolId() {
+        return schoolId;
+    }
+
+    public static void setSchoolId(String sid){
+        schoolId.set(sid);
+    }
 }

@@ -3,7 +3,7 @@ package com.brainfotech.school2go.exception;
 /**
  * Created by thameema on 4/27/14.
  */
-public class ValidationException extends UncheckedException {
+public class ValidationException extends com.brainfotech.school2go.exception.UncheckedException {
 
         public ValidationException(String code) {
             super(code);
