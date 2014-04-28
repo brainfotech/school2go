@@ -14,6 +14,8 @@
         
     
     
-    
+    <context:component-scan base-package="com.brainfotech.school2go.rest.resources" />
+
+    <bean id="objectMapper" class="org.codehaus.jackson.map.ObjectMapper" />
     
 </beans>
