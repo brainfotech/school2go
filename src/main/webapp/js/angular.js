@@ -223,7 +223,7 @@ var manualUppercase = function(s) {
 
 
 // String#toLowerCase and String#toUpperCase don't produce correct results in browsers with Turkish
-// locale, for this reason we need to detect this case and redefine lowercase/uppercase methods
+// i18n, for this reason we need to detect this case and redefine lowercase/uppercase methods
 // with correct but slower alternatives.
 if ('i' !== 'I'.toLowerCase()) {
   lowercase = manualLowercase;
@@ -7339,7 +7339,7 @@ function $DocumentProvider(){
  * ```
  *
  * This example will override the normal action of `$exceptionHandler`, to make angular
- * exceptions fail hard when they happen, instead of just logging to the console.
+ * exception fail hard when they happen, instead of just logging to the console.
  *
  * @param {Error} exception Exception associated with the error.
  * @param {string=} cause optional information about the context in which
@@ -9058,13 +9058,13 @@ function $IntervalProvider() {
 
 /**
  * @ngdoc service
- * @name $locale
+ * @name $i18n
  *
  * @description
- * $locale service provides localization rules for various Angular components. As of right now the
+ * $i18n service provides localization rules for various Angular components. As of right now the
  * only public api is:
  *
- * * `id` – `{string}` – locale id formatted as `languageId-countryId` (e.g. `en-us`)
+ * * `id` – `{string}` – i18n id formatted as `languageId-countryId` (e.g. `en-us`)
  */
 function $LocaleProvider(){
   this.$get = function() {
@@ -11503,7 +11503,7 @@ function $QProvider() {
  * Constructs a promise manager.
  *
  * @param {function(Function)} nextTick Function for executing functions in the next turn.
- * @param {function(...*)} exceptionHandler Function into which unexpected exceptions are passed for
+ * @param {function(...*)} exceptionHandler Function into which unexpected exception are passed for
  *     debugging purposes.
  * @returns {object} Promise manager.
  */
@@ -12694,7 +12694,7 @@ function $RootScopeProvider(){
        * @function
        *
        * @description
-       * Executes the `expression` on the current scope and returns the result. Any exceptions in
+       * Executes the `expression` on the current scope and returns the result. Any exception in
        * the expression are propagated (uncaught). This is useful when evaluating Angular
        * expressions.
        *
@@ -12736,7 +12736,7 @@ function $RootScopeProvider(){
        *   - at least one {@link ng.$rootScope.Scope#$digest $digest cycle} will be performed after
        *     `expression` execution.
        *
-       * Any exceptions from the execution of the expression are forwarded to the
+       * Any exception from the execution of the expression are forwarded to the
        * {@link ng.$exceptionHandler $exceptionHandler} service.
        *
        * __Note:__ if this function is called outside of a `$digest` cycle, a new `$digest` cycle
@@ -12799,7 +12799,7 @@ function $RootScopeProvider(){
        *
        * 1. The {@link guide/expression expression} is executed using the
        *    {@link ng.$rootScope.Scope#$eval $eval()} method.
-       * 2. Any exceptions from the execution of the expression are forwarded to the
+       * 2. Any exception from the execution of the expression are forwarded to the
        *    {@link ng.$exceptionHandler $exceptionHandler} service.
        * 3. The {@link ng.$rootScope.Scope#$watch watch} listeners are fired immediately after the
        *    expression was executed using the {@link ng.$rootScope.Scope#$digest $digest()} method.
@@ -14292,7 +14292,7 @@ function $TimeoutProvider() {
       *
       * @description
       * Angular's wrapper for `window.setTimeout`. The `fn` function is wrapped into a try/catch
-      * block and delegates any exceptions to
+      * block and delegates any exception to
       * {@link ng.$exceptionHandler $exceptionHandler} service.
       *
       * The return value of registering a timeout function is a promise, which will be resolved when
@@ -14866,7 +14866,7 @@ function filterFilter() {
  *
  * @description
  * Formats a number as a currency (ie $1,234.56). When no currency symbol is provided, default
- * symbol for current locale is used.
+ * symbol for current i18n is used.
  *
  * @param {number} amount Input to filter.
  * @param {string=} symbol Currency symbol or identifier to be displayed.
@@ -14928,8 +14928,8 @@ function currencyFilter($locale) {
  *
  * @param {number|string} number Number to format.
  * @param {(number|string)=} fractionSize Number of decimal places to round the number to.
- * If this is not provided then the fraction size is computed from the current locale's number
- * formatting pattern. In the case of the default locale, it will be 3.
+ * If this is not provided then the fraction size is computed from the current i18n's number
+ * formatting pattern. In the case of the default i18n, it will be 3.
  * @returns {string} Number rounded to decimalPlaces and places a “,” after each third digit.
  *
  * @example
@@ -15194,16 +15194,16 @@ var DATE_FORMATS_SPLIT = /((?:[^yMdHhmsaZEw']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|d
  *   `format` string can also be one of the following predefined
  *   {@link guide/i18n localizable formats}:
  *
- *   * `'medium'`: equivalent to `'MMM d, y h:mm:ss a'` for en_US locale
+ *   * `'medium'`: equivalent to `'MMM d, y h:mm:ss a'` for en_US i18n
  *     (e.g. Sep 3, 2010 12:05:08 pm)
- *   * `'short'`: equivalent to `'M/d/yy h:mm a'` for en_US  locale (e.g. 9/3/10 12:05 pm)
- *   * `'fullDate'`: equivalent to `'EEEE, MMMM d,y'` for en_US  locale
+ *   * `'short'`: equivalent to `'M/d/yy h:mm a'` for en_US  i18n (e.g. 9/3/10 12:05 pm)
+ *   * `'fullDate'`: equivalent to `'EEEE, MMMM d,y'` for en_US  i18n
  *     (e.g. Friday, September 3, 2010)
- *   * `'longDate'`: equivalent to `'MMMM d, y'` for en_US  locale (e.g. September 3, 2010)
- *   * `'mediumDate'`: equivalent to `'MMM d, y'` for en_US  locale (e.g. Sep 3, 2010)
- *   * `'shortDate'`: equivalent to `'M/d/yy'` for en_US locale (e.g. 9/3/10)
- *   * `'mediumTime'`: equivalent to `'h:mm:ss a'` for en_US locale (e.g. 12:05:08 pm)
- *   * `'shortTime'`: equivalent to `'h:mm a'` for en_US locale (e.g. 12:05 pm)
+ *   * `'longDate'`: equivalent to `'MMMM d, y'` for en_US  i18n (e.g. September 3, 2010)
+ *   * `'mediumDate'`: equivalent to `'MMM d, y'` for en_US  i18n (e.g. Sep 3, 2010)
+ *   * `'shortDate'`: equivalent to `'M/d/yy'` for en_US i18n (e.g. 9/3/10)
+ *   * `'mediumTime'`: equivalent to `'h:mm:ss a'` for en_US i18n (e.g. 12:05:08 pm)
+ *   * `'shortTime'`: equivalent to `'h:mm a'` for en_US i18n (e.g. 12:05 pm)
  *
  *   `format` string can contain literal values. These need to be quoted with single quotes (e.g.
  *   `"h 'in the morning'"`). In order to output single quote, use two single quotes in a sequence
@@ -20646,9 +20646,9 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
  * # Plural categories and explicit number rules
  * There are two
  * [plural categories](http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/language_plural_rules.html)
- * in Angular's default en-US locale: "one" and "other".
+ * in Angular's default en-US i18n: "one" and "other".
  *
- * While a plural category may match many numbers (for example, in en-US locale, "other" can match
+ * While a plural category may match many numbers (for example, in en-US i18n, "other" can match
  * any number that is not 1), an explicit number rule can only match one number. For example, the
  * explicit number rule for "3" matches the number 3. There are examples of plural categories
  * and explicit number rules throughout the rest of this documentation.
@@ -20733,7 +20733,7 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
           Person 2:<input type="text" ng-model="person2" value="Misko" /><br/>
           Number of People:<input type="text" ng-model="personCount" value="1" /><br/>
 
-          <!--- Example with simple pluralization rules for en locale --->
+          <!--- Example with simple pluralization rules for en i18n --->
           Without Offset:
           <ng-pluralize count="personCount"
                         when="{'0': 'Nobody is viewing.',
@@ -20832,7 +20832,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
 
         if (!isNaN(value)) {
           //if explicit number rule such as 1, 2, 3... is defined, just use it. Otherwise,
-          //check it against pluralization rules in $locale service
+          //check it against pluralization rules in $i18n service
           if (!(value in whens)) value = $locale.pluralCat(value - offset);
            return whensExpFns[value](scope);
         } else {

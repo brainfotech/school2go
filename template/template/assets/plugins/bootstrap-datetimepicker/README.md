@@ -139,8 +139,8 @@ String.  Default: 'mm/dd/yyyy'
 
 The date format, combination of p, P, h, hh, i, ii, s, ss, d, dd, m, mm, M, MM, yy, yyyy.
 
- * p : meridian in lower case ('am' or 'pm') - according to locale file
- * P : meridian in upper case ('AM' or 'PM') - according to locale file
+ * p : meridian in lower case ('am' or 'pm') - according to i18n file
+ * P : meridian in upper case ('AM' or 'PM') - according to i18n file
  * s : seconds without leading zeros
  * ss : seconds, 2 digits with leading zeros
  * i : minutes without leading zeros
@@ -509,7 +509,7 @@ A simple [Demo](http://lyonlai.github.io/bootstrap-datetimepicker/demo.html) pag
 
 ## I18N
 
-The plugin supports i18n for the month and weekday names and the `weekStart` option.  The default is English ('en'); other available translations are avilable in the `js/locales/` directory, simply include your desired locale after the plugin.  To add more languages, simply add a key to `$.fn.datetimepicker.dates`, before calling `.datetimepicker()`.  Example:
+The plugin supports i18n for the month and weekday names and the `weekStart` option.  The default is English ('en'); other available translations are avilable in the `js/locales/` directory, simply include your desired i18n after the plugin.  To add more languages, simply add a key to `$.fn.datetimepicker.dates`, before calling `.datetimepicker()`.  Example:
 
 ```javascript
 $.fn.datetimepicker.dates['en'] = {

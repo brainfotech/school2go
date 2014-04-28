@@ -33,14 +33,14 @@
 	
 	<!-- Configures Handler Interceptors -->
 	<mvc:interceptors>
-		<!-- Changes the locale when a 'locale' request parameter is sent; e.g. 
-			/?locale=de -->
+		<!-- Changes the i18n when a 'i18n' request parameter is sent; e.g.
+			/?i18n=de -->
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="lang"/>
 		<!-- Theme Change Interceptor definition -->
 		<bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor" p:paramName="theme"/>
 	</mvc:interceptors>
 
-	<!-- Saves a locale change using a cookie -->
+	<!-- Saves a i18n change using a cookie -->
 	<bean id="localeResolver"
 		class="org.springframework.web.servlet.i18n.CookieLocaleResolver" p:defaultLocale="en"/>
 	<!--  

@@ -440,7 +440,7 @@ jQuery.extend({
 		}
 
 		// Support: Firefox <20
-		// The try/catch suppresses exceptions thrown when attempting to access
+		// The try/catch suppresses exception thrown when attempting to access
 		// the "constructor" property of certain host objects, ie. |window.location|
 		// https://bugzilla.mozilla.org/show_bug.cgi?id=814622
 		try {

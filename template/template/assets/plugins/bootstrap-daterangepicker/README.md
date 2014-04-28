@@ -91,7 +91,7 @@ $('input[name="daterange"]').daterangepicker(
 
 `separator`: (string) Separator string to display between the start and end date when populating a text input the picker is attached to
 
-`locale`: (object) Allows you to provide localized strings for buttons and labels, and the first day of week for the calendars
+`i18n`: (object) Allows you to provide localized strings for buttons and labels, and the first day of week for the calendars
 
 `singleDatePicker`: (boolean) Show only a single calendar to choose one date, instead of a range picker with two calendars; the start and end dates provided to your callback will be the same single date chosen
 
@@ -121,7 +121,7 @@ Some applications need a "clear" instead of a "cancel" functionality, which can 
 
 ````
 $('#daterange').daterangepicker({
-  locale: { cancelLabel: 'Clear' }  
+  i18n: { cancelLabel: 'Clear' }
 });
 
 $('#daterange').on('cancel', function(ev, picker) {

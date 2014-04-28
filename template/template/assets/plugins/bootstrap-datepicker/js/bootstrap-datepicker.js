@@ -1077,7 +1077,7 @@
 	}
 
 	function opts_from_locale(lang){
-		// Derive options from locale plugins
+		// Derive options from i18n plugins
 		var out = {};
 		// Check if "de-DE" style date is available, if not language should
 		// fallback to 2 letter code eg "de"

@@ -72,7 +72,7 @@ New features:
   * `clearBtn`, a button for resetting the picker.
 
 Internal changes:
-* Cleaner and more reliable method for extracting options from all potential sources (defaults, locale overrides, data-attrs, and instantiation options, in that order).  This also populates `$.fn.datepicker.defaults` with the default values, and uses this hash as the actual source of defaults, meaning you can globally change the default value for a given option.
+* Cleaner and more reliable method for extracting options from all potential sources (defaults, i18n overrides, data-attrs, and instantiation options, in that order).  This also populates `$.fn.datepicker.defaults` with the default values, and uses this hash as the actual source of defaults, meaning you can globally change the default value for a given option.
 
 Bugs squashed:
 * Resolved a conflict with bootstrap's native `.switch` class.
@@ -110,7 +110,7 @@ v1.0.1
 
 * Support for [Bower](http://twitter.github.com/bower/)
 * Component pickers are now aligned under the input, not the add-on element.
-* Japanese locale now has "today" and "format".
+* Japanese i18n now has "today" and "format".
 * "remove" method removes `.data().date` if the datepicker is on a non-input.
 * Events on initialized elements are no longer blocked from bubbling up the DOM (jQuery.live et al can now catch the events).
 * Component triggers now include `.btn` in addition to `.add-on`.

@@ -53,7 +53,7 @@ There is no new major (e.g. 5.x) release on the roadmap at present.
 
 * Add support for placeholder attribute in prompts
 * Add select, email and checkbox types for prompts (thanks [@tarlepp](https://github.com/tarlepp))
-* Add Norwegian locale
+* Add Norwegian i18n
 * Allow setDefaults to take two key/val arguments
 * Add unique classes for main dialog methods
 * Create bower package
