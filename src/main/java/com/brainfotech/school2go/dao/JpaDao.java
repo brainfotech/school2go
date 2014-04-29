@@ -8,12 +8,12 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
-import com.brainfotech.school2go.entity.Entity;
+
 
 import org.springframework.transaction.annotation.Transactional;
 
 
-public class JpaDao<T extends Entity, I> implements Dao<T, I> {
+public class JpaDao<T, I> implements Dao<T, I> {
 
 	private EntityManager entityManager;
 

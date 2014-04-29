@@ -2,10 +2,8 @@ package com.brainfotech.school2go.dao;
 
 import java.util.List;
 
-import com.brainfotech.school2go.entity.Entity;
 
-
-public interface Dao<T extends Entity, I> {
+public interface Dao<T, I> {
 
 	List<T> findAll();
 
