@@ -6,22 +6,17 @@ import java.util.Date;
 
 
 /**
- * The persistent class for the school database table.
+ * The persistent class for the school_grades database table.
  * 
  */
 @Entity
-@NamedQuery(name="School.findAll", query="SELECT s FROM School s")
-public class School implements Serializable {
+@Table(name="school_grades")
+@NamedQuery(name="SchoolGrade.findAll", query="SELECT s FROM SchoolGrade s")
+public class SchoolGrade implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private int id;
-
-	private String address;
-
-	private String city;
-
-	private String country;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="create_date")
@@ -32,13 +27,11 @@ public class School implements Serializable {
 
 	private String description;
 
-	private String email;
+	@Column(name="grade_name")
+	private String gradeName;
 
-	private String name;
-
-	private String phone;
-
-	private String status;
+	@Column(name="school_id")
+	private int schoolId;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="update_date")
@@ -47,7 +40,7 @@ public class School implements Serializable {
 	@Column(name="updated_by")
 	private String updatedBy;
 
-	public School() {
+	public SchoolGrade() {
 	}
 
 	public int getId() {
@@ -56,30 +49,6 @@ public class School implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getAddress() {
-		return this.address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getCity() {
-		return this.city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getCountry() {
-		return this.country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
 	}
 
 	public Date getCreateDate() {
@@ -106,36 +75,20 @@ public class School implements Serializable {
 		this.description = description;
 	}
 
-	public String getEmail() {
-		return this.email;
+	public String getGradeName() {
+		return this.gradeName;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setGradeName(String gradeName) {
+		this.gradeName = gradeName;
 	}
 
-	public String getName() {
-		return this.name;
+	public int getSchoolId() {
+		return this.schoolId;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getPhone() {
-		return this.phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
+	public void setSchoolId(int schoolId) {
+		this.schoolId = schoolId;
 	}
 
 	public Date getUpdateDate() {

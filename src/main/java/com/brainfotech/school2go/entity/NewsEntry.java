@@ -1,5 +1,6 @@
 package com.brainfotech.school2go.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,7 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 
+
 import com.brainfotech.school2go.JsonViews;
+
 import org.codehaus.jackson.map.annotate.JsonView;
 
 
@@ -17,7 +20,7 @@ import org.codehaus.jackson.map.annotate.JsonView;
  * @author Philip W. Sorst <philip@sorst.net>
  */
 @javax.persistence.Entity
-public class NewsEntry implements Entity {
+public class NewsEntry implements Serializable {
 
 	@Id
 	@GeneratedValue

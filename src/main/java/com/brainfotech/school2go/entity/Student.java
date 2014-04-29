@@ -1,172 +1,234 @@
 package com.brainfotech.school2go.entity;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
+import java.io.Serializable;
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
 
+
 /**
- * Created by thameema on 4/28/14.
+ * The persistent class for the student database table.
+ * 
  */
+@Entity
+@NamedQuery(name="Student.findAll", query="SELECT s FROM Student s")
+public class Student implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-@javax.persistence.Entity
-@Table (name = "STUDENT")
-@XmlRootElement(name = "student")
-@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
-@NamedQueries({
+	@Id
+	private int id;
 
-})
-public class Student extends AbstractIdEntity{
-    @XmlEnum
-    @XmlType(namespace = "student")
-    public enum Status {ACTIVE, INACTIVE};
+	@Column(name="academic_level")
+	private String academicLevel;
 
-    @Column(name = "first_name")
-    private String firstName;
-    @Column(name = "last_name")
-    private String lastName;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="create_date")
+	private Date createDate;
 
-    @Column(name = "gender")
-    private String gender;
+	@Column(name="created_by")
+	private String createdBy;
 
-    @Column(name = "email")
-    private String email;
+	private int dentist;
 
-    @Column(name = "phone")
-    private Integer phone;
+	@Temporal(TemporalType.DATE)
+	private Date dob;
 
-    @Column(name = "dob")
-    private Date dob;
+	private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "FAMILY_ID", nullable = false, updatable = false)
-    private Family family;
+	@Column(name="family_id")
+	private int familyId;
 
-    @ManyToOne
-    @JoinColumn(name = "GRADE_ID", nullable = false, updatable = false)
-    private Grade grade;
+	@Column(name="first_name")
+	private String firstName;
 
-    @ManyToOne
-    @JoinColumn(name = "SCHOOL_ID", nullable = false, updatable = false)
-    private School school;
+	private String gender;
 
-    //private String physician;
-    //private String dentist;
+	private int grade;
 
+	@Column(name="last_name")
+	private String lastName;
 
-    private Status status;
+	private int phone;
 
-    @Column(name = "academic_level")
-    private String academicLevel;
+	private int physician;
 
-    @Column(name = "school_name")
-    private String schoolName;
+	private String returning;
 
+	@Column(name="school_id")
+	private int schoolId;
 
+	@Column(name="school_name")
+	private String schoolName;
 
-    public Family getFamily() {
-        return family;
-    }
+	private String status;
 
-    public void setFamily(Family family) {
-        this.family = family;
-    }
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="update_date")
+	private Date updateDate;
 
-    public String getFirstName() {
-        return firstName;
-    }
+	@Column(name="updated_by")
+	private String updatedBy;
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	public Student() {
+	}
 
-    public String getLastName() {
-        return lastName;
-    }
+	public int getId() {
+		return this.id;
+	}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getGender() {
-        return gender;
-    }
+	public String getAcademicLevel() {
+		return this.academicLevel;
+	}
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+	public void setAcademicLevel(String academicLevel) {
+		this.academicLevel = academicLevel;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public Date getCreateDate() {
+		return this.createDate;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 
-    public Integer getPhone() {
-        return phone;
-    }
+	public String getCreatedBy() {
+		return this.createdBy;
+	}
 
-    public void setPhone(Integer phone) {
-        this.phone = phone;
-    }
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 
-    public Date getDob() {
-        return dob;
-    }
+	public int getDentist() {
+		return this.dentist;
+	}
 
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
+	public void setDentist(int dentist) {
+		this.dentist = dentist;
+	}
 
-    public Status getStatus() {
-        return status;
-    }
+	public Date getDob() {
+		return this.dob;
+	}
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
 
-    public String getAcademicLevel() {
-        return academicLevel;
-    }
+	public String getEmail() {
+		return this.email;
+	}
 
-    public void setAcademicLevel(String academicLevel) {
-        this.academicLevel = academicLevel;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getSchoolName() {
-        return schoolName;
-    }
+	public int getFamilyId() {
+		return this.familyId;
+	}
 
-    public void setSchoolName(String schoolName) {
-        this.schoolName = schoolName;
-    }
+	public void setFamilyId(int familyId) {
+		this.familyId = familyId;
+	}
 
-    public School getSchool() {
-        return school;
-    }
+	public String getFirstName() {
+		return this.firstName;
+	}
 
-    public void setSchool(School school) {
-        this.school = school;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    @PrePersist
-    private void prePresist() {
-        if (this.status == null) {
-            this.status = Status.ACTIVE;
-        }
-    }
+	public String getGender() {
+		return this.gender;
+	}
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this);
-    }
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
+	public int getGrade() {
+		return this.grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+
+	public String getLastName() {
+		return this.lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(int phone) {
+		this.phone = phone;
+	}
+
+	public int getPhysician() {
+		return this.physician;
+	}
+
+	public void setPhysician(int physician) {
+		this.physician = physician;
+	}
+
+	public String getReturning() {
+		return this.returning;
+	}
+
+	public void setReturning(String returning) {
+		this.returning = returning;
+	}
+
+	public int getSchoolId() {
+		return this.schoolId;
+	}
+
+	public void setSchoolId(int schoolId) {
+		this.schoolId = schoolId;
+	}
+
+	public String getSchoolName() {
+		return this.schoolName;
+	}
+
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Date getUpdateDate() {
+		return this.updateDate;
+	}
+
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	public String getUpdatedBy() {
+		return this.updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
 
 }
