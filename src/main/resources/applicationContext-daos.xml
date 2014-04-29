@@ -22,7 +22,7 @@
                 p:username="${jdbc.username}" p:password="${jdbc.password}">
     </bean>
     <!--
-       <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" p:jndiName="java:comp/env/jdbc/tickets4bus">
+       <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" p:jndiName="java:comp/env/jdbc/school2go">
    		</bean>
    		<jee:jndi-lookup id="dbDataSource" jndi-name="${jdbc/jndiName}" expected-type="javax.sql.DataSource" /> 
     -->
@@ -32,7 +32,8 @@
                p:password="${jdbc.password}"  >
        </bean>
     -->
-        
+    
+    <!--      
     <bean id="sessionFactory"
                 class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource"></property>
@@ -46,6 +47,7 @@
 	    </property>
 	    <property name="packagesToScan" value="com.diebold.agilis.webconsole.entity"></property>
     </bean>
+    -->
     
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -78,20 +80,17 @@
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
     
-     <bean id="newsEntryDao" class="com.brainfotech.school2go.dao.newsentry.JpaNewsEntryDao">
+     <bean id="newsEntryDao" class="com.brainfotech.school2go.dao.jpa.impl.JpaNewsEntryDao">
     </bean>
 
-    <bean id="userDao" class="com.brainfotech.school2go.dao.user.JpaUserDao">
+    <bean id="userDao" class="com.brainfotech.school2go.dao.jpa.impl.JpaUserDao">
     </bean>
 
-    <bean id="passwordEncoder" class="com.brainfotech.school2go.security.SaltedSHA256PasswordEncoder">
-        <constructor-arg value="secret" />
-    </bean>
+    
 
     <bean id="dataBaseInitializer" class="com.brainfotech.school2go.dao.DataBaseInitializer" init-method="initDataBase">
         <constructor-arg ref="userDao" />
         <constructor-arg ref="newsEntryDao" />
-        <constructor-arg ref="passwordEncoder" />
     </bean>
     
 </beans>

@@ -60,11 +60,14 @@
     <authentication-manager alias="authenticationManager">
 	    <authentication-provider>
 	      <user-service>
-	        <user name="steven" password="steven" authorities="ROLE_USER, ROLE_ADMIN" />
-	        <user name="seth" password="seth" authorities="ROLE_USER" />
+	        <user name="thameem" password="thameem" authorities="ROLE_USER, ROLE_ADMIN" />
 	        <user name="rama" password="rama" authorities="ROLE_USER" />
 	      </user-service>
 	    </authentication-provider>
 	</authentication-manager>
+	
+    <beans:bean id="passwordEncoder" class="com.brainfotech.school2go.security.SaltedSHA256PasswordEncoder">
+        <constructor-arg value="secret" />
+    </beans:bean>
     
 </beans:beans>    

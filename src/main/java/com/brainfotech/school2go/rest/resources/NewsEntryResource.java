@@ -14,7 +14,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
 import com.brainfotech.school2go.JsonViews;
-import com.brainfotech.school2go.dao.newsentry.NewsEntryDao;
+import com.brainfotech.school2go.dao.NewsEntryDao;
 import com.brainfotech.school2go.entity.NewsEntry;
 
 import org.codehaus.jackson.JsonGenerationException;

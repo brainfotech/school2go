@@ -1,6 +1,5 @@
-package com.brainfotech.school2go.dao.user;
+package com.brainfotech.school2go.dao;
 
-import com.brainfotech.school2go.dao.Dao;
 import com.brainfotech.school2go.entity.User;
 
 

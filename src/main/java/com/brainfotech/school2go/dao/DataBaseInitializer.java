@@ -2,8 +2,6 @@ package com.brainfotech.school2go.dao;
 
 import java.util.Date;
 
-import com.brainfotech.school2go.dao.newsentry.NewsEntryDao;
-import com.brainfotech.school2go.dao.user.UserDao;
 import com.brainfotech.school2go.entity.NewsEntry;
 import com.brainfotech.school2go.entity.User;
 
@@ -21,7 +19,6 @@ public class DataBaseInitializer {
 
 	private UserDao userDao;
 
-	private PasswordEncoder passwordEncoder;
 
 
 	protected DataBaseInitializer() {
@@ -30,16 +27,15 @@ public class DataBaseInitializer {
 	}
 
 
-	public DataBaseInitializer(UserDao userDao, NewsEntryDao newsEntryDao, PasswordEncoder passwordEncoder) {
+	public DataBaseInitializer(UserDao userDao, NewsEntryDao newsEntryDao) {
 
 		this.userDao = userDao;
 		this.newsEntryDao = newsEntryDao;
-		this.passwordEncoder = passwordEncoder;
 	}
 
 
 	public void initDataBase() {
-
+		/*
 		User userUser = new User("user", this.passwordEncoder.encode("user"));
 		userUser.addRole("user");
 		this.userDao.save(userUser);
@@ -57,6 +53,7 @@ public class DataBaseInitializer {
 			this.newsEntryDao.save(newsEntry);
 			timestamp += 1000 * 60 * 60;
 		}
+		*/
 	}
 
 }

@@ -14,7 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 public class JpaDao<T, I> implements Dao<T, I> {
-
+	
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	protected Class<T> entityClass;
@@ -32,7 +33,7 @@ public class JpaDao<T, I> implements Dao<T, I> {
 	}
 
 
-	@PersistenceContext
+
 	public void setEntityManager(final EntityManager entityManager) {
 
 		this.entityManager = entityManager;

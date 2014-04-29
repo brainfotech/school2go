@@ -20,9 +20,11 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames" value="classpath:i18n/messages,classpath:i18n/errors" />
     </bean>
+    <!--  
     <bean id="errorMessageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="i18n/errors" />
     </bean>
+    -->
 </beans>
 
 

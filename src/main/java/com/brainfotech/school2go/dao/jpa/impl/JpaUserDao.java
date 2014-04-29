@@ -1,4 +1,4 @@
-package com.brainfotech.school2go.dao.user;
+package com.brainfotech.school2go.dao.jpa.impl;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
 
 import com.brainfotech.school2go.dao.JpaDao;
+import com.brainfotech.school2go.dao.UserDao;
 import com.brainfotech.school2go.entity.User;
 
 import org.springframework.security.core.userdetails.UserDetails;
