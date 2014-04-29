@@ -1,157 +1,123 @@
 package com.brainfotech.school2go.entity;
 
-import java.io.Serializable;
-import javax.persistence.*;
-import java.util.Date;
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import java.util.UUID;
 
 /**
- * The persistent class for the school database table.
- * 
+ * Created by thameema on 4/27/14.
  */
-@Entity
-@NamedQuery(name="School.findAll", query="SELECT s FROM School s")
-public class School implements Serializable {
-	private static final long serialVersionUID = 1L;
 
-	@Id
-	private int id;
+@javax.persistence.Entity
+@Table(name = "SCHOOL")
+@XmlRootElement(name = "school")
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
+@NamedQueries({
 
-	private String address;
+})
 
-	private String city;
+public class School extends AbstractIdEntity{
 
-	private String country;
+    @XmlEnum
+    @XmlType(namespace = "school")
+    public enum Status {ACTIVE, INACTIVE};
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_date")
-	private Date createDate;
+    @NotNull
+    @Column(name = "NAME")
+    private String name;
 
-	@Column(name="created_by")
-	private String createdBy;
+    @NotNull
+    @Column(name = "DESCRIPTION")
+    private String description;
 
-	private String description;
+    @Column(name = "ADDRESS")
+    private String address;
 
-	private String email;
+    @Column(name = "CITY")
+    private String city;
 
-	private String name;
+    @Column(name = "COUNTRY")
+    private String country;
 
-	private String phone;
+    @Column(name = "EMAIL")
+    private String email;
 
-	private String status;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "STATUS")
+    private Status status;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_date")
-	private Date updateDate;
+    public String getName() {
+        return name;
+    }
 
-	@Column(name="updated_by")
-	private String updatedBy;
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public School() {
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public int getId() {
-		return this.id;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public String getAddress() {
-		return this.address;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	public String getCity() {
-		return this.city;
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public String getCountry() {
+        return country;
+    }
 
-	public String getCountry() {
-		return this.country;
-	}
+    public void setCountry(String country) {
+        this.country = country;
+    }
 
-	public void setCountry(String country) {
-		this.country = country;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public Date getCreateDate() {
-		return this.createDate;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
+    public Status getStatus() {
+        return status;
+    }
 
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
+    @PrePersist
+    private void prePresist() {
+        if (this.status == null) {
+            this.status = Status.ACTIVE;
+        }
+    }
 
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getPhone() {
-		return this.phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public Date getUpdateDate() {
-		return this.updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public String getUpdatedBy() {
-		return this.updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
 }
