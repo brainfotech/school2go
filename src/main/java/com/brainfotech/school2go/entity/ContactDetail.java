@@ -1,8 +1,13 @@
 package com.brainfotech.school2go.entity;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -12,11 +17,8 @@ import java.util.Date;
 @Entity
 @Table(name="contact_details")
 @NamedQuery(name="ContactDetail.findAll", query="SELECT c FROM ContactDetail c")
-public class ContactDetail implements Serializable {
+public class ContactDetail extends AbstractIdEntity  {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	private int id;
 
 	private String address1;
 
@@ -27,13 +29,8 @@ public class ContactDetail implements Serializable {
 	@Column(name="contact_name")
 	private String contactName;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_date")
-	private Date createDate;
-
-	@Column(name="created_by")
-	private String createdBy;
-
+	
+	
 	private String email1;
 
 	private String email2;
@@ -65,13 +62,7 @@ public class ContactDetail implements Serializable {
 	public ContactDetail() {
 	}
 
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 
 	public String getAddress1() {
 		return this.address1;
@@ -105,22 +96,9 @@ public class ContactDetail implements Serializable {
 		this.contactName = contactName;
 	}
 
-	public Date getCreateDate() {
-		return this.createDate;
-	}
+	
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
+	
 	public String getEmail1() {
 		return this.email1;
 	}
@@ -177,21 +155,6 @@ public class ContactDetail implements Serializable {
 		this.state = state;
 	}
 
-	public Date getUpdateDate() {
-		return this.updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public String getUpdatedBy() {
-		return this.updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
 
 	public int getWorkPhone() {
 		return this.workPhone;

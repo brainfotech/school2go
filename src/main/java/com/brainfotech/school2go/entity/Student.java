@@ -1,8 +1,12 @@
 package com.brainfotech.school2go.entity;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -11,21 +15,12 @@ import java.util.Date;
  */
 @Entity
 @NamedQuery(name="Student.findAll", query="SELECT s FROM Student s")
-public class Student implements Serializable {
+public class Student extends AbstractIdEntity {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	private int id;
-
+	
 	@Column(name="academic_level")
 	private String academicLevel;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_date")
-	private Date createDate;
-
-	@Column(name="created_by")
-	private String createdBy;
 
 	private int dentist;
 
@@ -61,46 +56,17 @@ public class Student implements Serializable {
 
 	private String status;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_date")
-	private Date updateDate;
-
-	@Column(name="updated_by")
-	private String updatedBy;
-
+	
 	public Student() {
 	}
 
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 	public String getAcademicLevel() {
 		return this.academicLevel;
 	}
 
 	public void setAcademicLevel(String academicLevel) {
 		this.academicLevel = academicLevel;
-	}
-
-	public Date getCreateDate() {
-		return this.createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
 	}
 
 	public int getDentist() {
@@ -215,20 +181,5 @@ public class Student implements Serializable {
 		this.status = status;
 	}
 
-	public Date getUpdateDate() {
-		return this.updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public String getUpdatedBy() {
-		return this.updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
 
 }

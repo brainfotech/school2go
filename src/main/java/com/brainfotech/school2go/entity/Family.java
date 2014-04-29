@@ -4,23 +4,23 @@ package com.brainfotech.school2go.entity;
  * Created by thameema on 4/28/14.
  */
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@javax.persistence.Entity
+import org.apache.commons.lang.builder.ToStringBuilder;
+
+@Entity
 @Table (name = "Family")
-@XmlRootElement(name = "family")
-@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 @NamedQueries({
-
 })
-
-public class Family extends AbstractIdEntity{
+public class Family extends AbstractIdEntity {
 
     @Column(name="balance")
     private Double balance;

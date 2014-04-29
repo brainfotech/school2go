@@ -1,8 +1,13 @@
 package com.brainfotech.school2go.entity;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -12,11 +17,9 @@ import java.util.Date;
 @Entity
 @Table(name="family_doctors")
 @NamedQuery(name="FamilyDoctor.findAll", query="SELECT f FROM FamilyDoctor f")
-public class FamilyDoctor implements Serializable {
+public class FamilyDoctor extends AbstractIdEntity {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	private int id;
 
 	private String address1;
 
@@ -60,14 +63,7 @@ public class FamilyDoctor implements Serializable {
 	public FamilyDoctor() {
 	}
 
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 	public String getAddress1() {
 		return this.address1;
 	}

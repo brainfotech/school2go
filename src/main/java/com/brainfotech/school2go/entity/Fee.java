@@ -1,9 +1,14 @@
 package com.brainfotech.school2go.entity;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -13,20 +18,13 @@ import java.util.Date;
 @Entity
 @Table(name="fees")
 @NamedQuery(name="Fee.findAll", query="SELECT f FROM Fee f")
-public class Fee implements Serializable {
+public class Fee extends AbstractIdEntity  {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	private int id;
 
 	private int active;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_date")
-	private Date createDate;
-
-	@Column(name="created_by")
-	private String createdBy;
+	
 
 	private String description;
 
@@ -53,23 +51,11 @@ public class Fee implements Serializable {
 	@Column(name="start_date")
 	private Date startDate;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_date")
-	private Date updateDate;
-
-	@Column(name="updated_by")
-	private String updatedBy;
-
+	
 	public Fee() {
 	}
 
-	public int getId() {
-		return this.id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public int getActive() {
 		return this.active;
@@ -79,21 +65,9 @@ public class Fee implements Serializable {
 		this.active = active;
 	}
 
-	public Date getCreateDate() {
-		return this.createDate;
-	}
+	
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
+	
 
 	public String getDescription() {
 		return this.description;
@@ -167,20 +141,5 @@ public class Fee implements Serializable {
 		this.startDate = startDate;
 	}
 
-	public Date getUpdateDate() {
-		return this.updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public String getUpdatedBy() {
-		return this.updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
+	
 }

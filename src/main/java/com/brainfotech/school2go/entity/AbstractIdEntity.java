@@ -1,28 +1,29 @@
 package com.brainfotech.school2go.entity;
 
-import com.brainfotech.school2go.util.CustomJsonDateSerializer;
-import com.brainfotech.school2go.util.ThreadLocalUtil;
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
-import java.io.Serializable;
-import java.util.Date;
+import com.brainfotech.school2go.util.ThreadLocalUtil;
 
 /**
  * Created by thameema on 4/27/14.
  */
 
-@JsonSerialize
-@MappedSuperclass
 public abstract class AbstractIdEntity implements Serializable {
 
     private static final long serialVersionUID = -5268166765372397119L;
@@ -41,33 +42,26 @@ public abstract class AbstractIdEntity implements Serializable {
     /**
      * Entity's creation date
      */
-    @JsonIgnore
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "CREATE_DATE", updatable = false)
-    @JsonSerialize(using = CustomJsonDateSerializer.class)
-    protected Date created;
+    protected Date createDate;
 
     /**
      * Entity's created by
      */
-    @JsonIgnore
     @Column(name = "CREATED_BY", updatable = false)
     protected String createdBy;
 
     /**
      * Entity's update date
      */
-    @JsonIgnore
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "UPDATE_DATE")
-    @JsonSerialize(using = CustomJsonDateSerializer.class)
-    protected Date updated;
+    protected Date updateDate;
 
     /**
      * Entity's updated by
      */
-    @XmlTransient
-    @JsonIgnore
     @Column(name = "UPDATED_BY")
     protected String updatedBy;
 
@@ -79,41 +73,45 @@ public abstract class AbstractIdEntity implements Serializable {
         this.id = id;
     }
 
-    public Date getCreated() {
-        return created;
-    }
+    
+    
+    
+    
+    
 
-    public void setCreated(Date created) {
-        this.created = created;
-    }
+    public Date getCreateDate() {
+		return createDate;
+	}
 
-    public String getCreatedBy() {
-        return createdBy;
-    }
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
+	public String getCreatedBy() {
+		return createdBy;
+	}
 
-    public Date getUpdated() {
-        return updated;
-    }
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 
-    public void setUpdated(Date updated) {
-        this.updated = updated;
-    }
+	public Date getUpdateDate() {
+		return updateDate;
+	}
 
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
 
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
 
-    @JsonIgnore
-    @XmlTransient
-    public boolean isIdSet() {
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public boolean isIdSet() {
         return this.id != null;
     }
 
@@ -122,8 +120,8 @@ public abstract class AbstractIdEntity implements Serializable {
     @PrePersist
     private void prePresist() {
         DateTime nowUtc = new DateTime(DateTimeZone.UTC);
-        this.created = nowUtc.toDate();
-        this.updated = nowUtc.toDate();
+        this.createDate = nowUtc.toDate();
+        this.updateDate = nowUtc.toDate();
 
         this.createdBy = this.updatedBy = ThreadLocalUtil.get();
         if (logger.isDebugEnabled()) {
@@ -134,7 +132,7 @@ public abstract class AbstractIdEntity implements Serializable {
 
     @PreUpdate
     private void preUpdate() {
-        this.updated = new DateTime(DateTimeZone.UTC).toDate();
+        this.updateDate = new DateTime(DateTimeZone.UTC).toDate();
         this.updatedBy = ThreadLocalUtil.get();
         if (logger.isDebugEnabled()) {
             logger.debug("\n## AbstractIdEntity.preUpdate() : User id [{}] [{}] \n", this.updatedBy
