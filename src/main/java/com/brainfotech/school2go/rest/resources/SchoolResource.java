@@ -31,13 +31,13 @@ import org.springframework.data.domain.Pageable;
 public class SchoolResource  {
     private static final Logger logger = LoggerFactory.getLogger(SchoolResource.class);
 
-    @Autowired SchoolRepository schoolRepository;
+    @Autowired private SchoolRepository schoolRepository;
 
     @GET
     @Path(SCHOOL_BASE_PATH)
-    public School getSchool(@PathParam(SCHOOL_FRAGMENT) String id) {
-        ThreadLocalUtil.setSchoolId(id);
-        return null;
+    public School getSchool(@PathParam(SCHOOL_FRAGMENT) Long id) {
+        ThreadLocalUtil.setSchoolId(String.valueOf(id));
+        return schoolRepository.findOne(id);
     }
 
     @GET
