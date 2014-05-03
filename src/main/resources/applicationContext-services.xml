@@ -25,6 +25,12 @@
         <property name="basename" value="i18n/errors" />
     </bean>
     -->
+
+
+    <context:annotation-config />
+
+    <bean id="SchoolRepository" class="com.brainfotech.school2go.repository.SchoolRepository"/>
+
 </beans>
 
 
