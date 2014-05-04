@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+  <definition name="school2go.definition" template="/WEB-INF/views/layout.jsp">
+  	<put-attribute name="title" value="School2Go" />
+    <put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+    <put-attribute name="navigation" value="/WEB-INF/views/navigation.jsp" />
+    <put-attribute name="includes" value="" />
+    <put-attribute name="customincludes" value="" />
+     <!-- 
+    <put-attribute name="navigation" value="/WEB-INF/views/common/navigation.jsp" />
+    -->
+    <put-attribute name="body" value="" />
+    <put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+  </definition>
+  
+  
+  <definition name="user.custom.base.definition" template="/WEB-INF/views/layout.jsp">
+    <put-attribute name="title" value="School2Go" />
+    <put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+    
+    <put-attribute name="includes" value="/WEB-INF/views/includes.jsp" />
+    <put-attribute name="customincludes" value="" />
+     <!-- 
+    	<put-attribute name="navigation" value="/WEB-INF/views/navigation.jsp" />
+    -->
+    <put-attribute name="body" value="" />
+    <put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+  </definition>
+  
+  <definition name="school2go.base.popup" template="/WEB-INF/views/layout.jsp">
+  	<put-attribute name="title" value="School2Go" />
+  	<put-attribute name="header" value="" />
+    <put-attribute name="navigation" value="" />
+    <put-attribute name="includes" value="" />
+    <put-attribute name="customincludes" value="" />
+    <put-attribute name="body" value="" />
+    <put-attribute name="footer" value="" />
+  </definition>
+  
+ 
+  
+  
+  <definition name="login.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Login" />
+    <put-attribute name="navigation" value="" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+  </definition>
+  
+  <definition name="dashboard.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/dashboard.jsp" />
+  </definition>
+  
+  <definition name="home.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+  </definition>
+  
+  <definition name="preferences.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/preferences.jsp" />
+  </definition>
+  
+  <definition name="userpreferences.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/userpreferences.jsp" />
+  </definition>
+  
+  
+  <!-- Monitoring Related Definitions -->
+  <definition name="inputmessages.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/inputmessages.jsp" />
+  </definition>
+  
+  <definition name="inputmessagedetails.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/inputmessagedetails.jsp" />
+  </definition>
+  
+  <definition name="tppnmessages.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/tppnmessages.jsp" />
+  </definition>
+  
+  <definition name="tppnmessagedetails.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/tppnmessagedetails.jsp" />
+  </definition>
+  
+  <definition name="txnlogmessages.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/txnlogmessages.jsp" />
+  </definition>
+  <definition name="txnlogmessagedetails.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/txnlogmessagedetails.jsp" />
+  </definition>
+  
+  
+  <!-- OLTB Related Definitions -->
+  <definition name="oltbopadsfin.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbopadsfin.jsp" />
+  </definition>
+  <definition name="oltbopadsfindetails.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbopadsfindetails.jsp" />
+  </definition>
+  
+  <definition name="oltbopadsfout.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbopadsfout.jsp" />
+  </definition>
+  <definition name="oltbopadsfoutdetails.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbopadsfoutdetails.jsp" />
+  </definition>
+  
+  <definition name="oltbopenperiod.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbopenperiod.jsp" />
+  </definition>
+  
+  <definition name="oltbopenperioddetails.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbopenperioddetails.jsp" />
+  </definition>
+  
+  <definition name="oltbcloseperiod.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbcloseperiod.jsp" />
+  </definition>
+  
+  <definition name="oltbcloseperioddetails.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbcloseperioddetails.jsp" />
+  </definition>
+  
+  <definition name="oltbslastatistics.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbslastatistics.jsp" />
+  </definition>
+  
+  
+  
+ 
+  
+  <!-- Reports Related Definitions -->
+  <definition name="reportingcharts.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/reportingcharts.jsp" />
+  </definition>
+  
+  <definition name="reportsgenerator.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/reportsgenerator.jsp" />
+  </definition>
+  
+  <definition name="oltbmonthlyucvgraphs.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbmonthlyucvgraphs.jsp" />
+  </definition>
+  
+  <definition name="oltbyearlyucvgraphs.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbyearlyucvgraphs.jsp" />
+  </definition>
+  
+  <definition name="oltbslamonthlygraphs.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbslamonthlygraphs.jsp" />
+  </definition>
+  
+  <definition name="oltbslayearlygraphs.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/oltbslayearlygraphs.jsp" />
+  </definition>
+  
+  
+  
+  <!-- Chart Related Definitions -->
+  <definition name="barcharts.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/barcharts.jsp" />
+  </definition>
+  <definition name="linecharts.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/linecharts.jsp" />
+  </definition>
+  <definition name="piecharts.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/piecharts.jsp" />
+  </definition>
+  <definition name="othercharts.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/othercharts.jsp" />
+  </definition>
+  <definition name="charts.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/charts.jsp" />
+  </definition>
+  
+  
+  
+  
+  <!-- Admin Configuration Definitions -->
+  <definition name="serverconfig.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/serverconfig.jsp" />
+  </definition>
+  
+  <definition name="serverconfigdetails.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/serverconfigdetails.jsp" />
+  </definition>
+  
+  <definition name="createserverconfig.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/createserverconfig.jsp" />
+  </definition>
+  
+  <definition name="appconfig.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/appconfig.jsp" />
+  </definition>
+  
+  <definition name="appconfigdetails.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/appconfigdetails.jsp" />
+  </definition>
+  
+  <definition name="createappconfig.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/createappconfig.jsp" />
+  </definition>
+  
+  
+  <!-- Transaction Log Definitiions -->
+  
+  <definition name="tppntxnlog.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/tppntxnlog.jsp" />
+  </definition>
+  
+  <definition name="tppntxnlogdetails.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/tppntxnlogdetails.jsp" />
+  </definition>
+  
+  <definition name="txnlogmessages.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/txnlogmessages.jsp" />
+  </definition>
+  
+  <definition name="txnlogmessagedetails.definition" extends="agilis.base.popup">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/txnlogmessagedetails.jsp" />
+  </definition>
+  
+  <!-- Error Page Definitions -->
+  <definition name="errorpage404.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <put-attribute name="navigation" value="" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/404.jsp" />
+  </definition>
+  
+  <definition name="errorpage500.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <put-attribute name="navigation" value="" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/500.jsp" />
+  </definition>
+  
+  <definition name="errorpage.definition" extends="agilis.base.definition">
+    <put-attribute name="title" value="Agilis Web Console - Home" />
+    <put-attribute name="navigation" value="" />
+    <!--  
+    <put-attribute name="customincludes" value="/WEB-INF/views/customincludes.jsp" />
+    -->
+    <put-attribute name="body" value="/WEB-INF/views/error.jsp" />
+  </definition>
+   
+</tiles-definitions>
