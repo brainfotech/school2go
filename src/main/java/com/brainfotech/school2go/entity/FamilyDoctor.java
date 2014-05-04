@@ -27,12 +27,7 @@ public class FamilyDoctor extends AbstractIdEntity {
 
 	private String city;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_date")
-	private Date createDate;
 
-	@Column(name="created_by")
-	private String createdBy;
 
 	private String email;
 
@@ -53,12 +48,7 @@ public class FamilyDoctor extends AbstractIdEntity {
 
 	private String state;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_date")
-	private Date updateDate;
 
-	@Column(name="updated_by")
-	private String updatedBy;
 
 	public FamilyDoctor() {
 	}
@@ -88,21 +78,6 @@ public class FamilyDoctor extends AbstractIdEntity {
 		this.city = city;
 	}
 
-	public Date getCreateDate() {
-		return this.createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
 
 	public String getEmail() {
 		return this.email;
@@ -168,20 +143,6 @@ public class FamilyDoctor extends AbstractIdEntity {
 		this.state = state;
 	}
 
-	public Date getUpdateDate() {
-		return this.updateDate;
-	}
 
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public String getUpdatedBy() {
-		return this.updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
 
 }

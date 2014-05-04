@@ -67,7 +67,7 @@
 	</authentication-manager>
 	
     <beans:bean id="passwordEncoder" class="com.brainfotech.school2go.security.SaltedSHA256PasswordEncoder">
-        <constructor-arg value="secret" />
+        <beans:constructor-arg value="secret"/>
     </beans:bean>
     
 </beans:beans>    

@@ -22,6 +22,20 @@
 
     <!--<bean id="SchoolRepository" class="com.brainfotech.school2go.repository.SchoolRepository"/>-->
     <jpa:repositories base-package="com.brainfotech.school2go.repository"></jpa:repositories>
+
+    <bean name="/index.html"
+          class="com.brainfotech.school2go.controller.HelloController" />
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <property name="prefix">
+            <value>/WEB-INF/pages/</value>
+        </property>
+        <property name="suffix">
+            <value>.html</value>
+        </property>
+    </bean>
+
 </beans>
 
 

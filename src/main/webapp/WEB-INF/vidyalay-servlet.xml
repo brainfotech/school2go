@@ -65,38 +65,5 @@
 	</bean>
 	-->
 	
-	
-	<!-- Resolves view names to protected .jsp resources within the /WEB-INF/views 
-		directory -->
-		
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		id="viewResolver" p:prefix="/WEB-INF/views/" p:suffix=".jsp">
-	</bean>
 
-	
-	<!-- Tiles 3 Configuration -->
-	<!--  
-	<bean class="org.springframework.web.servlet.view.tiles3.SpringApplicationContext"/>
-	<bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.RendererViewResolver"/>
-	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
- 		<property name="tilesInitializer">
-  			<bean class="com.finntech.control.servlet.tiles.FinnTilesInitialiser"/>
- 		</property>
-	</bean>
-	-->
-	
-	<!-- Tiles 2.2.x Configuration -->
-	<!--  	
-	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
-      	<property name="definitions">
-	        <list>
-	          <value>/WEB-INF/tiles.xml</value>
-	        </list>
-      	</property>
-    </bean>
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-      	<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
-    </bean>
-	-->
 </beans>		

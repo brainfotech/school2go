@@ -3,14 +3,7 @@ package com.brainfotech.school2go.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.joda.time.DateTime;
@@ -24,6 +17,8 @@ import com.brainfotech.school2go.util.ThreadLocalUtil;
  * Created by thameema on 4/27/14.
  */
 
+
+@MappedSuperclass
 public abstract class AbstractIdEntity implements Serializable {
 
     private static final long serialVersionUID = -5268166765372397119L;
@@ -37,7 +32,7 @@ public abstract class AbstractIdEntity implements Serializable {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy=GenerationType.AUTO)
-    protected String id;
+    protected Long id;
 
     /**
      * Entity's creation date
@@ -65,11 +60,11 @@ public abstract class AbstractIdEntity implements Serializable {
     @Column(name = "UPDATED_BY")
     protected String updatedBy;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

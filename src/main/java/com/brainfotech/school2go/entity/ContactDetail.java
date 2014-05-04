@@ -49,12 +49,7 @@ public class ContactDetail extends AbstractIdEntity  {
 
 	private String state;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_date")
-	private Date updateDate;
 
-	@Column(name="updated_by")
-	private String updatedBy;
 
 	@Column(name="work_phone")
 	private int workPhone;

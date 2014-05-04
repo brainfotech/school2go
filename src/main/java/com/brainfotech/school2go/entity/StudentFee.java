@@ -12,15 +12,9 @@ import java.util.Date;
 @Entity
 @Table(name="student_fees")
 @NamedQuery(name="StudentFee.findAll", query="SELECT s FROM StudentFee s")
-public class StudentFee implements Serializable {
+public class StudentFee extends AbstractIdEntity {
 	private static final long serialVersionUID = 1L;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_date")
-	private Date createDate;
-
-	@Column(name="created_by")
-	private String createdBy;
 
 	@Column(name="due_year")
 	private int dueYear;
@@ -34,31 +28,10 @@ public class StudentFee implements Serializable {
 	@Column(name="student_id")
 	private int studentId;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_date")
-	private Date updateDate;
-
-	@Column(name="updated_by")
-	private String updatedBy;
 
 	public StudentFee() {
 	}
 
-	public Date getCreateDate() {
-		return this.createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
 
 	public int getDueYear() {
 		return this.dueYear;
@@ -92,20 +65,6 @@ public class StudentFee implements Serializable {
 		this.studentId = studentId;
 	}
 
-	public Date getUpdateDate() {
-		return this.updateDate;
-	}
 
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public String getUpdatedBy() {
-		return this.updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
 
 }

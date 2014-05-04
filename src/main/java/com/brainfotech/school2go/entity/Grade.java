@@ -1,18 +1,13 @@
 package com.brainfotech.school2go.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by thameema on 4/28/14.
  */
 
 @Entity
-@Table(name = "STUDENT")
+@Table(name = "school_grades")
 @NamedQueries({
 
 })
@@ -28,4 +23,27 @@ public class Grade extends AbstractIdEntity {
 	@Column(name = "description")
 	private String description;
 
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
