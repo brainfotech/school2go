@@ -16,15 +16,18 @@ public class HelloController {
 
     protected static final Logger logger = LoggerFactory.getLogger(HelloController.class);
 
-    @RequestMapping(value = { "/", "/index**" }, method = RequestMethod.GET)
-    public ModelAndView welcomePage() {
+    @RequestMapping(value = { "/"}, method = RequestMethod.GET)
+    public String welcomePage() {
 
-        ModelAndView model = new ModelAndView();
-        model.addObject("title", "Spring Security Hello World");
-        model.addObject("message", "This is welcome page!");
-        logger.debug("Inside hello controller view.. sending to view 'login'");
-        model.setViewName("login");
-        return model;
+        return "login";
+
+    }
+
+    @RequestMapping(value = { "/login" }, method = RequestMethod.GET)
+    public String loginPage() {
+
+        System.out.println("This is login page");
+        return "login";
 
     }
 
